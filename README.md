@@ -58,7 +58,7 @@ git add -A && git commit -m "..." && git push
 ### Pi-Setup (einmalig)
 
 ```bash
-mkdir -p ~/projects && cd ~/projects
+mkdir -p ~/apps && cd ~/apps
 git clone https://github.com/Bananenkaiser/bundesliga_data.git
 git clone https://github.com/Bananenkaiser/bundesliga-web.git
 # -> ~/apps/bundesliga_data  und  ~/apps/bundesliga-web  liegen nebeneinander,
@@ -67,4 +67,4 @@ docker network create traefik-net    # falls noch nicht vorhanden
 cd ~/apps/bundesliga-web && docker compose up -d --build
 ```
 
-Traefik + Pi-hole-Eintrag für `tippspiel.lan` siehe Repo `docker/`.
+Traefik + Pi-hole-Eintrag für `tippspiel.lan` siehe Repo `homelab`.

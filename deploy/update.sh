@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Auf dem Raspberry Pi ausführen: holt den neuesten Stand und baut den Container neu.
-# Aufruf:  ~/apps/bundesliga-web/deploy/update.sh
+# Aufruf:  $DISK/apps/bundesliga-web/deploy/update.sh
 set -euo pipefail
 
 cd "$(dirname "$0")/.."

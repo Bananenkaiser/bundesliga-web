@@ -51,20 +51,20 @@ Entwickelt wird **hier auf dem Rechner**, der Pi zieht den Stand aus GitHub.
 # lokal
 git add -A && git commit -m "..." && git push
 
-# auf dem Pi (einmalig geklont nach ~/apps/bundesliga-web)
-~/apps/bundesliga-web/deploy/update.sh      # git pull + docker compose up -d --build
+# auf dem Pi (einmalig geklont nach $DISK/apps/bundesliga-web)
+$DISK/apps/bundesliga-web/deploy/update.sh      # git pull + docker compose up -d --build
 ```
 
 ### Pi-Setup (einmalig)
 
+`bundesliga_data` liegt auf dem Pi schon unter `$DISK/apps/`. Nur dieses Repo
+daneben klonen, dann findet die compose die CSVs unter `../bundesliga_data/data`:
+
 ```bash
-mkdir -p ~/apps && cd ~/apps
-git clone https://github.com/Bananenkaiser/bundesliga_data.git
+DISK=/srv/dev-disk-by-uuid-672d33ef-9522-48ce-a5ea-711cb8119569
+cd $DISK/apps
 git clone https://github.com/Bananenkaiser/bundesliga-web.git
-# -> ~/apps/bundesliga_data  und  ~/apps/bundesliga-web  liegen nebeneinander,
-#    dann findet docker-compose.yml die Daten unter ../bundesliga_data/data automatisch.
-docker network create traefik-net    # falls noch nicht vorhanden
-cd ~/apps/bundesliga-web && docker compose up -d --build
+cd bundesliga-web && docker compose up -d --build
 ```
 
 Traefik + Pi-hole-Eintrag für `tippspiel.lan` siehe Repo `homelab`.

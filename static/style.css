@@ -1,0 +1,13 @@
+:root { color-scheme: light dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font: 15px/1.5 system-ui, sans-serif;
+  padding: 1.5rem;
+  max-width: 60rem;
+  margin-inline: auto;
+}
+header h1 { font-size: 1.25rem; margin: 0 0 1rem; }
+table { border-collapse: collapse; width: 100%; }
+th, td { text-align: left; padding: .4rem .6rem; border-bottom: 1px solid #8883; }
+th { font-weight: 600; }

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Spieltag {{ matchday }}{% endblock %}
+{% block content %}
+  <h2>Spieltag {{ matchday }}</h2>
+
+  {# TODO: deine Darstellung. Platzhalter-Tabelle: #}
+  <table>
+    <thead>
+      <tr><th>Heim</th><th>Auswärts</th><th>Tipp</th><th>P(H)</th><th>P(U)</th><th>P(A)</th></tr>
+    </thead>
+    <tbody>
+      {% for t in tips %}
+        <tr>
+          <td>{{ t.HomeTeam }}</td>
+          <td>{{ t.AwayTeam }}</td>
+          <td>{{ t.tipp }}</td>
+          <td>{{ "%.0f%%"|format(t.p_H * 100) }}</td>
+          <td>{{ "%.0f%%"|format(t.p_U * 100) }}</td>
+          <td>{{ "%.0f%%"|format(t.p_A * 100) }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
